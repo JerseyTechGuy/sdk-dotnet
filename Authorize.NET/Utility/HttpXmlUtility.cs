@@ -106,7 +106,10 @@ namespace AuthorizeNet {
                         {
                             if (null != _xmlDoc.ChildNodes[i].ChildNodes[j])
                             {
-                                thingy.directResponse = _xmlDoc.ChildNodes[i].ChildNodes[j].InnerText;
+                                if (_xmlDoc.ChildNodes[i].ChildNodes[j].Name == "directResponse")
+                                {
+                                    thingy.directResponse = _xmlDoc.ChildNodes[i].ChildNodes[j].InnerText;
+                                }
                             }
                             if (null != thingy.directResponse) { break; }
                         }
